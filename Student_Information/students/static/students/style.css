@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+body { margin: 0; padding: 32px 16px; background: #eef2f7; color: #182b45; font: 16px/1.5 Arial, sans-serif; }
+main { max-width: 700px; margin: auto; background: white; padding: 32px; border-radius: 12px; box-shadow: 0 4px 20px #182b4510; }
+h1 { line-height: 1.2; margin-top: 0; }
+.eyebrow { color: #3366a0; font-size: 12px; font-weight: bold; letter-spacing: 1px; }
+fieldset { border: 0; margin: 20px 0; padding: 0; min-width: 0; }
+legend, fieldset > label { display: block; font-weight: bold; margin-bottom: 6px; }
+input[type=text], input[type=number], select, textarea { width: 100%; padding: 10px; border: 1px solid #9aaabd; border-radius: 5px; font: inherit; }
+input[type=radio], input[type=checkbox] { margin: 8px 6px 8px 0; }
+button { background: #2057a0; color: white; padding: 12px 28px; border: 0; border-radius: 6px; font: inherit; cursor: pointer; }
+button:hover { background: #153d73; }
+a { color: #2057a0; }
+.error, .errorlist { color: #ab2020; }
+.error { padding: 12px; background: #fff1f1; border-left: 4px solid #ab2020; }
+dt { font-weight: bold; margin-top: 18px; }
+dd { margin: 4px 0 0; overflow-wrap: anywhere; }
+:focus-visible { outline: 3px solid #e3a62c; outline-offset: 3px; }

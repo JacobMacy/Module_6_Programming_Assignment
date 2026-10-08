@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Registration Summary</title>
+    <link rel="stylesheet" href="{% static 'students/style.css' %}">
+</head>
+<body>
+<main>
+    <p class="eyebrow">INFORMATION RECEIVED</p>
+    <h1>Student Registration Summary</h1>
+    <p>Your form was submitted successfully.</p>
+    <dl>
+        <dt>Student Name:</dt><dd>{{ student.student_name }}</dd>
+        <dt>Student ID:</dt><dd>{{ student.student_id }}</dd>
+        <dt>Major:</dt><dd>{{ student.major|default:"Not provided" }}</dd>
+        <dt>Class Standing:</dt><dd>{{ student.class_standing|default:"Not provided" }}</dd>
+        <dt>Programming Languages:</dt>
+        <dd>{% if student.languages %}{{ student.languages|join:", " }}{% else %}None selected{% endif %}</dd>
+        <dt>Expected Graduation:</dt><dd>{{ student.graduation_year|default:"Not provided" }}</dd>
+        <dt>Comments:</dt><dd>{{ student.comments|default:"No comments"|linebreaksbr }}</dd>
+    </dl>
+    <a href="{% url 'students:form' %}">Enter another student</a>
+</main>
+</body>
+</html>

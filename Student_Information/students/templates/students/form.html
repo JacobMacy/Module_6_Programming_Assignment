@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="{% static 'students/style.css' %}">
+</head>
+<body>
+<main>
+    <p class="eyebrow">COLLEGE STUDENT SERVICES</p>
+    <h1>Student Information</h1>
+    <p>Enter your information below. Name and Student ID are required.</p>
+    {% if form.errors %}
+    <p class="error" role="alert">Please correct the errors below and submit again.</p>
+    {% endif %}
+    <!-- novalidate lets the assignment demonstrate Django's server validation. -->
+    <form method="post" action="{% url 'students:results' %}" novalidate>
+        {% csrf_token %}
+        {% for field in form %}
+        <fieldset>
+            {% if field.name == 'class_standing' or field.name == 'languages' %}
+            <legend>{{ field.label }}</legend>
+            {% else %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} *{% endif %}</label>
+            {% endif %}
+            {{ field }}
+            {{ field.errors }}
+        </fieldset>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</main>
+</body>
+</html>
